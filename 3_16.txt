@@ -1,0 +1,25 @@
+Daily Progress
+March 16th, 2023
+
+Today I did the following:
+1. Did some research on Top-Down vs Bottom-Up learning. I generated a handful of case studies and saved to google drive.
+2. Revised my development timeline - replaced any repeat tasks with a "buffer day" in my timeline.
+3. Requested review of the Development Timeline on reddit. Unsure if I'll get any bites
+4. Formatted the timeline and outline, adding links as needed.
+5. Made my first Git repo with actual Git - this took a little while. In doing so, I had a couple of issues:
+---- I had to redownload Xcode
+---- I had to alter my GitHub because I accidentally published my secret_key (whoops)
+---- Eventually I learned about the .env file and put my key in there with "config"
+---- Then I tried to uncommit and amend the commit, but it wasn't possible. 
+---- In the end, I deleted and reuploaded and all worked well!!
+6. After that, I started working on the PostgreSQL database. This gave me a lot of trouble. Here's some problems I ran into and how I solved them:
+---- I couldn't figure out my password. Had to fix by going into PyAdmin4 and setting up the admin password and my own user login.
+---- bash couldn't find the commands. I didn't want to have to copy and paste the full path of every command, so I tried to fix it! 
+---- I put the PATH in a ~/.bashrc file and then used source ~/.bashrc to download the changes. (I had to research how to copy a folder path though. CTRL + CMD + C fyi)
+7. It worked and I was so happy!!!
+8. Then I updated the settings.py file with the database information. I used the same .env file and config to input my PSQL username and password to make it more secure! 
+9. Ran migrate.py
+
+Currently, it's about 3:45 and I'm really running out of steam. The next thing I need to do is actually create the database and tables. I'm not sure if I want to do this today because my brain i literally mush and I'm soooooooo hungry! I was also up super late last night. I might sign off for the day. Yeah, I'm signing off. 
+
+wl FLTL <3
