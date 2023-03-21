@@ -44,18 +44,18 @@ class Tournament_bracket(models.Model):
     Is_final = models.BooleanField()
 
     def __str__(self):
-        return self.Tournament_bracket
+        return self.bracket_id
 
 class Tournament_user(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.SET('deleted_user'))
+    # user = models.ForeignKey(User, on_delete=models.SET('deleted_user'))
     tournament_user_id = models.BigAutoField(auto_created = True,
                          primary_key = True,
                          serialize = False)
 
 class Vote(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.SET('deleted_user'))
+    # user = models.ForeignKey(User, on_delete=models.SET('deleted_user'))
     tournament_song_id = models.ForeignKey(Tournament_song, on_delete=models.CASCADE)
     vote_id = models.BigAutoField(auto_created = True,
               primary_key = True,
@@ -94,5 +94,5 @@ class Bracket_winner(models.Model):
                primary_key = True,
                serialize = False)
     bracket_id = models.ForeignKey(Tournament_bracket, on_delete=models.CASCADE)
-    tournament_song_id = models.ForeignKey(tournament_song, on_delete=models.CASCADE)
+    tournament_song_id = models.ForeignKey(Tournament_song, on_delete=models.CASCADE)
     rank = models.IntegerField()

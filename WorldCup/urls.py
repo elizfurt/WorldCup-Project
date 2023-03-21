@@ -1,4 +1,4 @@
-"""WorldCup URL Configuration
+﻿"""WorldCup URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
-    path('users/', include('users.urls')),
+    path('userMgmt/', include('userMgmt.urls')),
     path('tournament/', include('tournament.urls')),
     path('admin/', admin.site.urls),
 ]
