@@ -1,13 +1,18 @@
+{% extends "master.html" %}
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title></title>
-</head>
+{% block title %}
+  Logout
+{% endblock %}
 
-<body>
-    You have successfully logged out.
-    <a href="/userMgmt">Home</a>
-</body>
+{% block content %}
+    <div class="container"><h1>You have sucessfully logged out.</h1>
+    <p>We'll miss you. :(</p>
+<a href="/userMgmt">Return to Home</a>
+    </div>
+{% endblock %}
 
 </html>

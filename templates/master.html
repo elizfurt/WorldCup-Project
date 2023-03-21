@@ -1,0 +1,41 @@
+ {% load static %}
+ {% load bootstrap5 %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar bg-primary navbar-dark navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/userMgmt">World Cup of Music</a>
+            </div>
+            <div>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="/userMgmt" class="text-decoration-none link-light">HOME</a></li>
+                    <li class="list-inline-item"><a href="/userMgmt/register" class="text-decoration-none link-light">REGISTER</a></li>
+                    <li class="list-inline-item"><a href="/userMgmt/login" class="text-decoration-none link-light">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
+    <div class=".container">
+        <br />
+        {% block content %}
+        {% endblock %}
+        <br />
+    </div>
+
+    <script src="{% static './js/bootrap.bundle.js' %}"></script>
+</body>
+</html>

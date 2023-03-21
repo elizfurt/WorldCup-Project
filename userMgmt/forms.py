@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
 class UserRegistrationForm(forms.Form):
     username = forms.CharField(
