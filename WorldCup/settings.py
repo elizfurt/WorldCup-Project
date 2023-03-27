@@ -36,7 +36,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "WorldCup",
-    'tournament.apps.TournamentConfig',
+    "userMgmt",
+    "tournament.apps.TournamentConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

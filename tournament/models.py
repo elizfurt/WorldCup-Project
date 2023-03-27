@@ -1,5 +1,8 @@
+##Tournament
+
 from django.db import models
 from django.db.models import fields
+from userMgmt.models import CustomUser
 
 class Tournament(models.Model):
     tournament_id = models.BigAutoField(auto_created = True,
@@ -48,14 +51,15 @@ class Tournament_bracket(models.Model):
 
 class Tournament_user(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
-    # user = models.ForeignKey(User, on_delete=models.SET('deleted_user'))
+    user = models.ForeignKey('userMgmt.CustomUser', on_delete=models.SET('deleted_user'))
     tournament_user_id = models.BigAutoField(auto_created = True,
                          primary_key = True,
                          serialize = False)
+    is_Creator = models.BooleanField()
 
 class Vote(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
-    # user = models.ForeignKey(User, on_delete=models.SET('deleted_user'))
+    user = models.ForeignKey('userMgmt.CustomUser', on_delete=models.SET('deleted_user'))
     tournament_song_id = models.ForeignKey(Tournament_song, on_delete=models.CASCADE)
     vote_id = models.BigAutoField(auto_created = True,
               primary_key = True,
