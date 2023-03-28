@@ -3,46 +3,62 @@
 
 <!DOCTYPE html>
 <html>
-
 {% block title %}
   Login
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="d-flex justify-content-center">
-        <div class="card text-white bg-info mb-3 text-center" style="max-width: 30rem;">
-            <h3 class="card-header text-center">Existing User Login</h3>
-            <div class="card-body">
-                <div class="card-text">
+<body class="bg-gradient">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white bg-primary mb-3 text-center" style="width: 23rem; height: 30rem">
+                <h3 class="card-header text-center card-header-orange">LOGIN</h3>
+                <div class="card-body card-body-orange">
+                    <div class="card-text">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <p style="Text-align: left">Existing Users:</p>
+                            </div>
+                            <div class="row">
+                                <input type="text" name="username" placeholder="username" style="width:100%;">
+                            </div>
+                            <div class="row"><br /></div>
+                            <div class="row">
+                                <input type="password" name="password" placeholder="password" style="width:100%;">
+                            </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="col-8" style="white-space:nowrap">
+                            <button type="submit" class="btn btn-bright btn-block rounded">Login</button>
+                        </div>
+                        <div class="col-8" style="white-space:nowrap">
+                            <button type="reset" class="btn btn-bright btn-block rounded" style="min-height: 100%;">
+                                <span style="font-size: 100%; text-align: center">Forgot Password</span>
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                    <hr>
                     <form method="POST">
                         {% csrf_token %}
-                        <div class="row"><br /></div>
-                        <div class="row" style="width: 75%">
-                            <div class="col">
-                                <label>Username:</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" name="username">
+                        <div class="row">
+                            <p style="Text-align: left">No existing account?</p>
+                        </div>
+                        <div class="row">
+                            <input type="email" name="email" id="email" placeholder="email" style="width:100%;">
+                        </div>
+                        <div class="row" style="height:2.5%"><br /></div>
+                        <div class="row justify-content-center">
+                            <div class="col-10">
+                                <button type="button" class="btn btn-bright btn-block rounded" onclick="location.href = '/userMgmt/register?email=' + document.getElementById('email').value;">Join Now</button>
                             </div>
                         </div>
-                        <div class="row"><br /></div>
-                        <div class="row" style="width: 75%">
-                            <div class="col">
-                                <label>Password:</label>
-                            </div>
-                            <div class="col">
-                                <input type="password" name="password">
-                            </div>
-                        </div>
-                        <div class="row"><br /></div>
-                        <button type="submit" class="btn btn-primary">Login</button>
                     </form>
                 </div>
-        </div>
+            </div>
         </div>
     </div>
-</div>
+</body>
 {% endblock %}
-
 </html>

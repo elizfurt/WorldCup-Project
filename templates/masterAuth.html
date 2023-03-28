@@ -9,14 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/Bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <title>{% block title %}{% endblock %}</title>
+
+
 </head>
 
 <body>
     <nav class="navbar bg-primary navbar-dark navbar-static-top d-flex align-items-center">
-        <div class="container">
+        
             <div class="navbar-header ">
-                <a class="navbar-brand" href="/userMgmt">World Cup of Music</a>
+                <a class="navbar-brand" href="/userMgmt">WORLD CUP OF MUSIC</a>
             </div>
             <div>
                 <form class="d-flex search">
@@ -28,7 +34,7 @@
                     <li class="list-inline-item"><a href="/userMgmt/about" class="text-decoration-none text-light">ABOUT</a></li>
                     <li class="list-inline-item"><a href="/userMgmt/logout" class="text-decoration-none text-light">LOGOUT</a></li>
                 </ul>      
-            </div>
+           
         </div>
     </nav>
     </div>

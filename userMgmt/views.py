@@ -15,8 +15,13 @@ def index(request):
 def profile(request):
     return render(request, 'accounts/profile.html')
     
+def register(request, email=''):
+    email = request.GET.get('email', '')
+    if email:
+        form = UserRegistrationForm(initial={'email': email})
+    else:
+        form = UserRegistrationForm()
 
-def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -37,9 +42,4 @@ def register(request):
                 login(request, user)
                 return HttpResponseRedirect('/userMgmt')    
 
-    else:
-        form = UserRegistrationForm()
-        
     return render(request, 'registration/register.html', {'form': form})
-
-

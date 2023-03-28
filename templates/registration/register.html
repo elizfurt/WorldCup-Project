@@ -5,24 +5,64 @@
 <html>
 
 {% block title %}
-  Join us
+  Register
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="d-flex justify-content-center">
-        <div class="card text-white bg-info mb-3 text-center" style="max-width: 30rem;">
-            <h3 class="card-header text-center">New User Registration</h3>
-            <div class="card-body">
-                <div class="card-text">
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary">Register</button>
+<body class="bg-gradient">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white bg-primary mb-3 text-center" style="width: 23rem; height: 30rem" >
+                <h3 class="card-header text-center card-header-orange">REGISTER</h3>
+                <div class="card-body card-body-orange">
+                    <div class="card-text">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <p style="text-align: left">Required:</p>
+                            </div>
+
+                            <div class="row">
+                                <input type="email" name="email" id="email" placeholder="email" style="width:100%;">
+                            </div>
+                            <div class="row" style="height:2.5%"><br /></div>
+                            <div class="row">
+                                <input type="text" name="username" placeholder="username" style="width:100%;">
+                            </div>
+                            <div class="row" style="height:2.5%"><br /></div>
+                            <div class="row">
+                                <input type="password" name="password" placeholder="password" style="width:100%;">
+                            </div>
+                            <div class="row" style="height:2.5%"><br /></div>
+                            <div class="row">
+                                <p style="text-align:left">Optional:</p>
+                            </div>
+                            <div class="row">
+                                <input type="text" name="displayName" placeholder="Display Name" style="width:100%;">
+                            </div>
+                            <div class="row" style="height:2.5%"><br /></div>
+                            <div class="row">
+                                <input type="phone" name="phone" placeholder="Phone Number" style="width:100%;">
+                            </div>
+                            <div class="row"><br /></div>
+                            <div class="row justify-content-center">
+                                <div class="col-10">
+                                    <button type="submit" class="btn btn-bright btn-block rounded">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <script>// Get the email parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+
+            // Fill the email input field with the email parameter value
+            const emailInput = document.getElementById('email');
+            emailInput.value = email;
+        </script>
+</body>
 {% endblock %}
 </html>
