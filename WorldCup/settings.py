@@ -70,6 +70,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "userMgmt.context_processors.user_dashboard"
             ],
         },
     },
@@ -136,4 +137,4 @@ STATICFILES_DIRS = [BASE_DIR / "static"] #new (below the above line)
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = "/userMgmt/profile/"
+LOGIN_REDIRECT_URL = "/userMgmt/userDashboard/"

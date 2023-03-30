@@ -1,0 +1,67 @@
+{% extends "masterAuth.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+{% block title %}
+  Account Overview
+{% endblock %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+<div class="container-special">
+    <div class="row-special">
+        <div class="col-sm-7 col-12 d-flex justify-content-center">
+                <h1>WELCOME BACK,<span class="h1-special" style="color:var(--bright-orange)"> {{ user.username }}</span></h1>
+        </div>
+        <div class="col-sm-5 col-12 justify-content-center">
+            <div class="row-special">
+                <br />
+            </div>
+            <div class="row-special">
+                <h2 class="h2-special">RECENT RESULTS</h2>
+            </div>
+            <div class="row-special">
+                <div class="card bg-light-card mb-3 text-center" style="width:100%; color:var(--bright-orange)">
+                    <div id="ranking-table">
+                        {{ ranking_html|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-special">
+        <div class="col-sm-7 col-12 d-flex justify-content-center">
+                <div class="card bg-light-card mb-3 text-center" style="width:100%">
+                    <p>Placeholder</p>
+                </div>
+        </div>
+        <div class="col-sm-5 col-12">
+                <div class="card bg-light-card mb-3 text-center" style="width:100%;">
+                    <p>Placeholder</p>
+                </div>
+            </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    {% else %}
+    <p>....you don't have a profile, how are you here?</p>
+    <p>How about you</p>
+    <p><a href="login">Login</a></p>
+    {% endif %}
+</div>
+{% endblock %}
+</html>

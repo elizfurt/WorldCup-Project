@@ -6,14 +6,23 @@ from django import forms
 from .forms import UserRegistrationForm
 from django.core.exceptions import ValidationError
 from django.contrib import messages
+from .context_processors import user_dashboard
+from tournament.models import Resultz, Tournament_song
+from django.http import HttpResponse
+from django.template.loader import render_to_string
 
 # Create your views here.
 
 def index(request):
     return render(request, 'home/homepage.html')
 
-def profile(request):
-    return render(request, 'accounts/profile.html')
+def userDashboard(request):
+    ranking_html = render_to_string('ranking_html.html')
+    context = {
+        'ranking_html': ranking_html,
+        'user_dashboard': user_dashboard
+    }
+    return render(request, 'accounts/userDashboard.html', context)
     
 def register(request, email=''):
     email = request.GET.get('email', '')
@@ -43,3 +52,12 @@ def register(request, email=''):
                 return HttpResponseRedirect('/userMgmt')    
 
     return render(request, 'registration/register.html', {'form': form})
+
+def userDashboard(request):
+    rankings = Resultz.objects.order_by('-points')
+    ranking_html = render_to_string('ranking_html.html', {'rankings': rankings})
+    context = {
+        'ranking_html': ranking_html,
+        'user_dashboard': user_dashboard
+    }
+    return render(request, 'accounts/userDashboard.html', context)

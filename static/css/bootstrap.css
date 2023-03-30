@@ -13,6 +13,8 @@
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
+    --brown: #ab815e;
+    --beige: #eae3d9;
     --primary: #D67C30;
     --secondary: #8672D2;
     --success: #28a745;
@@ -21,7 +23,6 @@
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #343a40;
-   
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -38,6 +39,7 @@
 
 html {
     font-family: 'Inter', sans-serif;
+    color: inherit;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -57,7 +59,6 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
     text-align: left;
     background-color: #fff;
 }
@@ -75,6 +76,7 @@ hr {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
     margin-top: 0;
+    color: inherit;
     margin-bottom: 0.5rem;
 }
 
@@ -308,11 +310,44 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.2; }
 
 h1, .h1 {
-  font-size: 2.5rem; }
+    letter-spacing: 3px;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size:125%;
+    }
+}
+
+h1-special, .h1-special {
+    letter-spacing: 1px;
+    font-style:italic;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 576px) {
+    .h1-special {
+        font-size: 125%;
+    }
+}
 
 h2, .h2 {
   font-size: 2rem; }
 
+.h2-special {
+    text-indent: 20px;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    font-weight: 200;
+}
+
+@media (max-width: 576px) {
+    .h2-special {
+        font-size: 100%;
+
+    }
+}
 h3, .h3 {
   font-size: 1.75rem; }
 
@@ -471,6 +506,13 @@ pre {
     .container {
       max-width: 1140px; } }
 
+.container-special {
+    width: 90%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
   padding-right: 15px;
@@ -500,6 +542,10 @@ pre {
   margin-right: -15px;
   margin-left: -15px; }
 
+.row-special {
+    display: flex;
+    flex-wrap: wrap;
+}
 .no-gutters {
   margin-right: 0;
   margin-left: 0; }
@@ -679,6 +725,7 @@ pre {
 
 .offset-11 {
   margin-left: 91.66667%; }
+
 
 @media (min-width: 576px) {
   .col-sm {
@@ -3007,11 +3054,12 @@ input::placeholder {
       transition: none; } }
 
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none; }
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
 
 .nav-link {
   display: block;
@@ -3096,9 +3144,24 @@ input::placeholder {
   font-style: italic;
   line-height: inherit;
   white-space: nowrap; }
-  .navbar-brand:hover, .navbar-brand:focus {
+
+.navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none; }
 
+.navbar-current {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    color: var(--orange) !important;
+    margin-right: 1rem;
+    font-size: .9rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    text-decoration: none;
+}
 .navbar-nav {
   display: flex;
   flex-direction: column;
@@ -3113,9 +3176,10 @@ input::placeholder {
     float: none; }
 
 .navbar-text {
-  display: inline-block;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem; }
+    display: inline-block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
 
 .navbar-collapse {
   flex-basis: 100%;
@@ -3123,6 +3187,7 @@ input::placeholder {
   align-items: center; }
 
 .navbar-toggler {
+  display: none;
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
@@ -3180,6 +3245,9 @@ input::placeholder {
       display: none; } }
 
 @media (max-width: 767.98px) {
+    .navbar-toggler {
+        display:block;
+    }
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {
     padding-right: 0;
@@ -3439,6 +3507,8 @@ input::placeholder {
     background-color: #faf1d5;
     color: #ea7e26;
 }
+
+
 .card-img-overlay {
   position: absolute;
   top: 0;
@@ -4821,6 +4891,10 @@ button.bg-dark:focus {
 
 .bg-gradient {
     background: linear-gradient(to bottom right, #fcd95e, #ddb9e6);
+}
+
+.bg-light-card {
+    background-color: var(--beige);
 }
 .border {
   border: 1px solid #dee2e6 !important; }

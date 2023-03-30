@@ -1,7 +1,7 @@
 ## userMgmt app
 from django.urls import path, include, re_path, reverse
 from django.contrib.auth.views import LoginView, LogoutView
-from .views import register, profile
+from .views import register, userDashboard
 
 from . import views
 
@@ -11,18 +11,18 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='registration/login.html'),
         name='login'),
 
-    # profile page 
-    re_path(r'^profile/', profile),
+    # User Dashboard page 
+    re_path(r'^userDashboard/', views.userDashboard, name="userDashboard"),
 
-    # Log-Out page.
+    # Log-Out page. 
     path('logout/', LogoutView.as_view(template_name='registration/logout.html'),
         name='logout'),
 
-    # Registration Page
+    # Registration Page 
     path('register/', views.register, name='register'),
-    path('register/<str:email>/', views.register, name='register')
+    path('register/<str:email>/', views.register, name='register'),
 
-    # Profile Page / Index
-    # path('', views.index, name='index'),
+    # Profile Page / Index 
+    path('', views.index, name='index'),
 
 ]

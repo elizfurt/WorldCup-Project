@@ -1,5 +1,4 @@
 ##Tournament
-
 from django.db import models
 from django.db.models import fields
 from userMgmt.models import CustomUser
@@ -26,10 +25,11 @@ class Song(models.Model):
     spotify_ID = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.song_id
+        return f"{self.title} by {self.artist}"
 
 class Tournament_song(models.Model):
-    tourament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
+    user = models.ForeignKey('userMgmt.CustomUser', on_delete=models.SET('deleted_user'))
     song = models.ManyToManyField(Song)
     tournament_song_id = models.BigAutoField(auto_created = True,
                          primary_key = True,
@@ -37,7 +37,7 @@ class Tournament_song(models.Model):
     points = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.tournament_song_id
+        return f"{', '.join([song.title for song in self.song.all()])}"
 
 class Tournament_bracket(models.Model):
     tourmament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
@@ -100,3 +100,11 @@ class Bracket_winner(models.Model):
     bracket_id = models.ForeignKey(Tournament_bracket, on_delete=models.CASCADE)
     tournament_song_id = models.ForeignKey(Tournament_song, on_delete=models.CASCADE)
     rank = models.IntegerField()
+
+class Resultz(models.Model):
+    user = models.ForeignKey('userMgmt.CustomUser', on_delete=models.SET('deleted_user'))
+    tournament_song = models.ForeignKey(Tournament_song, on_delete=models.CASCADE, related_name='results')
+    points = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.tournament_song} - {self.points} points"

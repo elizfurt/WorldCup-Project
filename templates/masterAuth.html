@@ -12,32 +12,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <script src="static/js/fittext.js"></script>
     <title>{% block title %}{% endblock %}</title>
 
 
 </head>
 
 <body>
-    <nav class="navbar bg-primary navbar-dark navbar-static-top d-flex align-items-center">
-        
-            <div class="navbar-header ">
-                <a class="navbar-brand" href="/userMgmt">WORLD CUP OF MUSIC</a>
-            </div>
-            <div>
-                <form class="d-flex search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
-            </div>
-            <div>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="/userMgmt/about" class="text-decoration-none text-light">ABOUT</a></li>
-                    <li class="list-inline-item"><a href="/userMgmt/logout" class="text-decoration-none text-light">LOGOUT</a></li>
-                </ul>      
-           
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark navbar-static-top d-flex align-items-center">
+        <a class="navbar-brand" href="/userMgmt">WORLD CUP OF MUSIC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div>
+            <form class="d-flex search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="list-inline-item"><a href="/userMgmt/about" class="text-decoration-none text-light">ABOUT</a></li>
+                <li class="list-inline-item"><a href="/userMgmt/logout" class="text-decoration-none text-light">LOGOUT</a></li>
+            </ul>
         </div>
     </nav>
-    </div>
+
+    <nav class="navbar navbar-expand-lg bg-white navbar-static-top d-flex align-items-center">
+        {% if not is_user_dashboard %}
+        <div class="navbar-current">
+            <p><span style="color: var(--brown)">You are logged in as: </span><span style="color: var(--bright-orange)">{{ user.username }}</span></p>
+        </div>
+        {% else %}
+        <div></div>
+        {% endif %}
+        <div>
+            <ul class="list-inline">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="{% static 'icons/plus-circle-fill.svg' %}" style="height:90%">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="{% static 'icons/trophy-fill.svg' %}" style="height:90%">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="{% static 'icons/envelope.svg' %}" style="height:100%">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="{% static 'icons/person-fill.svg' %}" style="height:100%">
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+
     <div class=".container">
         <br />
         {% block content %}
@@ -45,6 +80,7 @@
         <br />
     </div>
 
-    <script src="{% static './js/bootrap.bundle.js' %}"></script>
+    <script src="{% static '/js/bootrap.bundle.js' %}"></script>
+
 </body>
 </html>

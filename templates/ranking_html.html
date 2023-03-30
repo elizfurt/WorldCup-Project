@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Song</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for rank in rankings %}
+            <td>{{ forloop.counter }}</td>
+            <td>{{ rank.user.username }}</td>
+            <td>{{ rank.tournament_song }}</td>
+            <td>{{ rank.points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+</html>
